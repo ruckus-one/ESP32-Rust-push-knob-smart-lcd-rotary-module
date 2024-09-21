@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Bart Karalus",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-c3-devkitm-1",
+      "id": "esp",
+      "top": -374.7,
+      "left": -234.18,
+      "attrs": { "builder": "rust-nostd-esp" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -166.6,
+      "left": -326.4,
+      "attrs": { "color": "blue" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn2:1.r", "esp:10", "green", [ "h9.8", "v-124.8" ] ],
+    [ "btn2:2.l", "esp:GND.7", "green", [ "h134.6", "v-115" ] ]
+  ],
+  "serialMonitor": { "display": "terminal", "newline": "lf", "convertEol": true },
+  "dependencies": {}
+}

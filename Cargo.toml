@@ -1,0 +1,31 @@
+[package]
+name = "esp-rust-encoder-lcd"
+version = "0.1.0"
+authors = ["Bart Karalus <bart@bforge.co>"]
+edition = "2021"
+resolver = "2"
+rust-version = "1.76"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true
+opt-level = "z"
+
+[dependencies]
+anyhow = "1.0.82"
+esp-idf-svc = "0.48.1"
+esp-idf-hal = "0.43.1"
+log = { version = "0.4", default-features = false }
+esp-idf-sys = { version = "0.34.0", features = ["binstart"] }
+display-interface = "0.5.0"
+display-interface-spi = "0.5.0"
+embedded-graphics = "0.8.0"
+gc9a01-rs = "0.3.0"
+
+[build-dependencies]
+embuild = "0.31.4"
+
+[patch.crates-io]
+cc = { git = "https://github.com/rust-lang/cc-rs", tag = "1.0.83" }
